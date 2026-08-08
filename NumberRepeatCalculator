@@ -1,0 +1,50 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Keeps track of how many times the current number
+        // has been repeated consecutively.
+        int currentcount = 1;
+
+        // Stores the highest number of consecutive repetitions
+        // we have found so far.
+        int maxcount = 1;
+
+        // An array containing the numbers we want to examine.
+        int[] arr = {0, 6, 2, 2, 3, 4, 5, 5, 5, 5, 7, 8, 9, 2, 2, 7};
+
+        // Start at index 1 because we compare each element
+        // with the element immediately before it.
+        for (int i = 1; i < arr.length; i++) {
+
+            // Check whether the current number is the same
+            // as the previous number.
+            if (arr[i] == arr[i - 1]) {
+
+                // If they are the same, increase the count
+                // of consecutive repetitions.
+                currentcount++;
+
+            } else {
+
+                // The current sequence has ended.
+                // Check whether it was the longest sequence
+                // we have seen so far.
+                if (currentcount > maxcount) {
+                    maxcount = currentcount;
+                }
+
+                // Start counting a new sequence.
+                currentcount = 1;
+            }
+        }
+
+        // The final sequence might be the longest one, so
+        // we need to check it after the loop finishes.
+        if (currentcount > maxcount) {
+            maxcount = currentcount;
+        }
+
+        // Display the highest number of consecutive repetitions.
+        System.out.println("Highest repeated count is " + maxcount);
+    }
+}
