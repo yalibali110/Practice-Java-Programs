@@ -1,3 +1,5 @@
+//This program uses the Tree.java file to run the full program
+
 import java.util.*;
 
 public class World {
