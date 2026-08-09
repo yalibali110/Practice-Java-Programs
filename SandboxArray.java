@@ -1,4 +1,3 @@
-```java
 import java.util.Scanner;
 
 public class Main {
@@ -26,7 +25,9 @@ public class Main {
             int index = scan.nextInt();
 
             // Display the value stored at the selected index.
-            System.out.println("Value at index " + index + ": " + numbers[index]);
+            System.out.println(
+                "Value at index " + index + ": " + numbers[index]
+            );
 
             // Ask whether the user wants to change a value.
             System.out.println("Would you like to change a value?");
@@ -34,29 +35,65 @@ public class Main {
 
             char change = scan.next().charAt(0);
 
+            // If the user wants to change a value,
+            // start the value-changing loop.
             if (change == 'Y' || change == 'y') {
 
-                // Ask which index the user wants to change.
-                System.out.println("What index would you like to replace?");
-                int replaceIndex = scan.nextInt();
+                boolean changing = true;
 
-                // Ask what the new value should be.
-                System.out.println("What would you like to change the value to?");
-                int newValue = scan.nextInt();
+                // Continue changing values until the user
+                // chooses to stop.
+                while (changing) {
 
-                // Replace the old value with the new value.
-                numbers[replaceIndex] = newValue;
+                    // Ask which index the user wants to change.
+                    System.out.println(
+                        "What index would you like to replace?"
+                    );
+                    int replaceIndex = scan.nextInt();
 
-                System.out.println("The value has been changed.");
+                    // Ask what the new value should be.
+                    System.out.println(
+                        "What would you like to change the value to?"
+                    );
+                    int newValue = scan.nextInt();
+
+                    // Replace the old value with the new value.
+                    numbers[replaceIndex] = newValue;
+
+                    System.out.println("The value has been changed.");
+
+                    // Ask whether the user wants to change another value.
+                    System.out.println(
+                        "Would you like to change another value?"
+                    );
+                    System.out.println(
+                        "Enter [Y] for yes or [N] for no."
+                    );
+
+                    char anotherChange = scan.next().charAt(0);
+
+                    // If the user enters N, stop changing values.
+                    if (anotherChange == 'N' ||
+                        anotherChange == 'n') {
+
+                        changing = false;
+                    }
+
+                    // If the user enters Y, the while loop
+                    // automatically starts another change.
+                }
             }
 
-            // Print every index and the value stored at that index.
+            // Print every index and the value currently stored there.
             System.out.println();
-            System.out.println("Current array values:");
+            System.out.println("Final array values:");
 
             for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Index " + i + " contains: " + numbers[i]);
+                System.out.println(
+                    "Index " + i + " contains: " + numbers[i]
+                );
             }
+
 
         // Check whether the user selected a Double array.
         } else if (ArrayType.equalsIgnoreCase("Double")) {
@@ -69,7 +106,9 @@ public class Main {
             int index = scan.nextInt();
 
             // Display the value stored at the selected index.
-            System.out.println("Value at index " + index + ": " + numbers[index]);
+            System.out.println(
+                "Value at index " + index + ": " + numbers[index]
+            );
 
             // Ask whether the user wants to change a value.
             System.out.println("Would you like to change a value?");
@@ -77,35 +116,70 @@ public class Main {
 
             char change = scan.next().charAt(0);
 
+            // If the user wants to change a value,
+            // start the value-changing loop.
             if (change == 'Y' || change == 'y') {
 
-                // Ask which index the user wants to change.
-                System.out.println("What index would you like to replace?");
-                int replaceIndex = scan.nextInt();
+                boolean changing = true;
 
-                // Ask what the new value should be.
-                System.out.println("What would you like to change the value to?");
-                double newValue = scan.nextDouble();
+                // Continue changing values until the user
+                // chooses to stop.
+                while (changing) {
 
-                // Replace the old value with the new value.
-                numbers[replaceIndex] = newValue;
+                    // Ask which index the user wants to change.
+                    System.out.println(
+                        "What index would you like to replace?"
+                    );
+                    int replaceIndex = scan.nextInt();
 
-                System.out.println("The value has been changed.");
+                    // Ask what the new value should be.
+                    System.out.println(
+                        "What would you like to change the value to?"
+                    );
+                    double newValue = scan.nextDouble();
+
+                    // Replace the old value with the new value.
+                    numbers[replaceIndex] = newValue;
+
+                    System.out.println("The value has been changed.");
+
+                    // Ask whether the user wants to change another value.
+                    System.out.println(
+                        "Would you like to change another value?"
+                    );
+                    System.out.println(
+                        "Enter [Y] for yes or [N] for no."
+                    );
+
+                    char anotherChange = scan.next().charAt(0);
+
+                    // If the user enters N, stop changing values.
+                    if (anotherChange == 'N' ||
+                        anotherChange == 'n') {
+
+                        changing = false;
+                    }
+                }
             }
 
-            // Print every index and the value stored at that index.
+            // Print every index and the value currently stored there.
             System.out.println();
-            System.out.println("Current array values:");
+            System.out.println("Final array values:");
 
             for (int i = 0; i < numbers.length; i++) {
-                System.out.println("Index " + i + " contains: " + numbers[i]);
+                System.out.println(
+                    "Index " + i + " contains: " + numbers[i]
+                );
             }
+
 
         } else {
 
             // Display an error if the user didn't enter
             // Int or Double.
-            System.out.println("Input does not match required field.");
+            System.out.println(
+                "Input does not match required field."
+            );
         }
 
         // Close the Scanner when the program is finished.
@@ -140,4 +214,3 @@ public class Main {
         return DoubleNumbers;
     }
 }
-```
